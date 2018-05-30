@@ -1,6 +1,6 @@
 <template>
   <div class="todo-list">
-    <todo-item v-for="todo in todos" v-bind:todo="todo" v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo"></todo-item>
+    <todo-item v-for="todo in todos" v-bind:todo="todo"></todo-item>
   </div>
 </template>
 
@@ -8,18 +8,12 @@
 import TodoItem from './TodoItem'
 
 export default {
-  props: ['todos'],
   components: {
     TodoItem
   },
-  methods: {
-    deleteTodo (todo) {
-      let index = this.todos.indexOf(todo)
-      this.todos.splice(index, 1)
-    },
-    completeTodo (todo) {
-      const index = this.todos.indexOf(todo)
-      this.todos[index].done = true
+  computed: {
+    todos () {
+      return this.$store.getters.todos
     }
   }
 }

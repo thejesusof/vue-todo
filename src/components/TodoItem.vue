@@ -1,13 +1,13 @@
 <template>
   <div class="todo-item">
     <span class="todo-text"> {{ todo.text }} </span>
-    <button v-on:click="showInput" class="edit-btn"> Edit </button>
-    <button v-on:click="deleteTodo(todo)" class="delete-btn"> Delete </button>
-    <button v-on:click="completeTodo(todo)" class="mark-btn"> Mark as completed </button>
+    <button @click="showInput" class="edit-btn"> Edit </button>
+    <button @click="deleteTodo(todo)" class="delete-btn"> Delete </button>
+    <button @click="completeTodo(todo)" class="mark-btn"> Mark as completed </button>
     <span v-show="todo.done"> Done </span>
     <div v-show="isEditing" class="edit-todo-item">
       <input type="text" v-model="todo.text">
-      <button v-on:click="hideInput"> Finish editing </button>
+      <button @click="hideInput" class="edit-btn"> Finish editing </button>
     </div>
   </div>
 </template>
@@ -28,10 +28,10 @@ export default {
       this.isEditing = false
     },
     deleteTodo (todo) {
-      this.$emit('delete-todo', todo)
+      this.$store.dispatch('deleteTodo', todo)
     },
     completeTodo (todo) {
-      this.$emit('complete-todo', todo)
+      this.$store.dispatch('completeTodo', todo)
     }
   }
 }
@@ -43,5 +43,14 @@ export default {
 }
 .edit-todo-item {
   margin-top: 10px;
+}
+.edit-btn {
+  background: rgba(186,225,255, 1)
+}
+.delete-btn {
+  background: rgba(255,179,186, 1)
+}
+.mark-btn {
+  background: rgba(255,223,186, 1)
 }
 </style>

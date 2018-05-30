@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <h1>TODO App</h1>
-    <todo-list v-bind:todos="todos"></todo-list>
-    <add-todo v-on:add-todo="addTodo"></add-todo>
+    <todo-list></todo-list>
+    <add-todo></add-todo>
   </div>
 </template>
 
@@ -17,14 +17,7 @@ export default {
     AddTodo
   },
   data () {
-    return {
-      todos: []
-    }
-  },
-  methods: {
-    addTodo (text) {
-      this.todos.push(text)
-    }
+    return {}
   }
 }
 </script>
@@ -39,6 +32,7 @@ body {
 button {
   padding: 10px 20px;
   border-radius: 20px;
+  border: none;
   cursor: pointer;
 }
 input {

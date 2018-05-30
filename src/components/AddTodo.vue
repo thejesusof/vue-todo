@@ -1,14 +1,14 @@
 <template>
   <div>
-    <button v-on:click="showForm" v-show="!isCreating">
+    <button @click="showForm" v-show="!isCreating" class="add-todo">
       Add new todo
     </button>
     <div v-show="isCreating">
-      <input v-model="text" type="text" ref="text" defaultValue="">
-      <button v-on:click="sendForm">
+      <input v-model="text" type="text" ref="text">
+      <button @click="sendForm" class="create-btn">
         Create
       </button>
-      <button v-on:click="hideForm">
+      <button @click="hideForm" class="cancel-btn">
         Cancel
       </button>
     </div>
@@ -17,7 +17,6 @@
 
 <script type = "text/javascript">
 export default {
-  props: ['todo'],
   data () {
     return {
       text: '',
@@ -34,7 +33,7 @@ export default {
     sendForm () {
       if (this.text.length > 0) {
         const text = this.text
-        this.$emit('add-todo', {
+        this.$store.dispatch('addTodo', {
           text,
           done: false
         })
@@ -46,4 +45,13 @@ export default {
 </script>
 
 <style>
+.add-todo {
+  background: rgba(186,255,201, 1)
+}
+.create-btn {
+  background: rgba(186,255,201, 1)
+}
+.cancel-btn {
+  background: rgba(255,179,186, 1)
+}
 </style>
