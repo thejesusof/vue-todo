@@ -39,6 +39,5 @@ export default {
     margin: 0 auto;
     margin-bottom: 30px;
     border-radius: 25px;
-    padding: 20px 0;
   }
 </style>
