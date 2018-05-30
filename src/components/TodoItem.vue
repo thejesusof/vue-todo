@@ -15,25 +15,24 @@
 </template>
 
 <script type = "text/javascript">
-
 export default {
   props: ['todo'],
   data () {
     return {
-      isEditing: false,
+      isEditing: false
     }
   },
   methods: {
     showInput () {
-      this.isEditing = true;
+      this.isEditing = true
     },
     hideInput () {
-      this.isEditing = false;
+      this.isEditing = false
     },
-    deleteTodo(todo) {
+    deleteTodo (todo) {
       this.$emit('delete-todo', todo)
-    },
-  },
+    }
+  }
 }
 </script>
 

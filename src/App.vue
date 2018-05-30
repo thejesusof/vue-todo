@@ -1,32 +1,42 @@
 <template>
   <div id="app">
     <todo-list v-bind:todos="todos"></todo-list>
+    <add-todo v-on:add-todo="addTodo"></add-todo>
   </div>
 </template>
 
 <script>
 import TodoList from './components/TodoList'
+import AddTodo from './components/AddTodo'
 
 export default {
   name: 'App',
   components: {
-    TodoList
+    TodoList,
+    AddTodo
   },
   data () {
     return {
       todos: [{
         text: 'Todo',
-        done: false,
+        done: false
       }, {
         text: 'Todo',
-        done: true,
+        done: true
       }, {
         text: 'Todo',
-        done: false,
+        done: false
       }, {
         text: 'Todo',
-        done: false,
-      }],
+        done: false
+      }]
+    }
+  },
+  methods: {
+    addTodo (text) {
+      console.log(text)
+      this.todos.push(text)
+      console.log(this.todos)
     }
   }
 }
