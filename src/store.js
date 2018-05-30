@@ -5,12 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    todos: [
-      {
-        text: 'ololo',
-        done: false
-      }
-    ]
+    todos: []
   },
   mutations: {
     ADD_TODO (state, todo) {
@@ -31,7 +26,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    addTodo ({commit}, todo) {
+    addTodo ({ commit }, todo) {
       commit('ADD_TODO', todo)
     },
     editTodo ({commit}, todo) {
@@ -42,10 +37,18 @@ export default new Vuex.Store({
     },
     completeTodo ({commit}, todo) {
       commit('COMPLETE_TODO', todo)
+    },
+    getLocalStorage ({ state }) {
+      let storage = localStorage.getItem('todos')
+      if (storage) {
+        state.todos = JSON.parse(storage)
+      }
+    },
+    setLocalStorage ({ state }) {
+      localStorage.setItem('todos', JSON.stringify(state.todos))
     }
   },
   getters: {
-    todos: state => state.todos,
     completedTodos: state => state.todos.filter((todo) => {
       return todo.done
     })
