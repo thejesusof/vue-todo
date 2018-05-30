@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <todo-item v-for="todo in todos" v-bind:todo="todo" v-on:delete-todo="deleteTodo"></todo-item>
+  <div class="todo-list">
+    <todo-item v-for="todo in todos" v-bind:todo="todo" v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo"></todo-item>
   </div>
 </template>
 
@@ -16,6 +16,10 @@ export default {
     deleteTodo (todo) {
       let index = this.todos.indexOf(todo)
       this.todos.splice(index, 1)
+    },
+    completeTodo (todo) {
+      const index = this.todos.indexOf(todo)
+      this.todos[index].done = true
     }
   }
 }
@@ -23,4 +27,12 @@ export default {
 </script>
 
 <style>
+  .todo-list {
+    border: 1px solid #ccc;
+    max-width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    padding: 20px 0;
+  }
 </style>

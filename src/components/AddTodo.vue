@@ -4,7 +4,6 @@
       Add new todo
     </button>
     <div v-show="isCreating">
-      <label> Text </label>
       <input v-model="text" type="text" ref="text" defaultValue="">
       <button v-on:click="sendForm">
         Create
