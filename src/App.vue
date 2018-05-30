@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <todo-list></todo-list>
+    <todo-list v-bind:todos="todos"></todo-list>
   </div>
 </template>
 
@@ -11,6 +11,23 @@ export default {
   name: 'App',
   components: {
     TodoList
+  },
+  data () {
+    return {
+      todos: [{
+        text: 'Todo',
+        done: false,
+      }, {
+        text: 'Todo',
+        done: true,
+      }, {
+        text: 'Todo',
+        done: false,
+      }, {
+        text: 'Todo',
+        done: false,
+      }],
+    }
   }
 }
 </script>
@@ -22,6 +39,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 </style>
