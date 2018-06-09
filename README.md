@@ -1,5 +1,7 @@
 # todo
 
+![TODO](http://i0.kym-cdn.com/photos/images/newsfeed/001/332/344/784.jpg)
+
 > A Vue.js project
 
 ## Build Setup

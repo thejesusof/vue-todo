@@ -4,7 +4,7 @@
       <button @click="completeTodo(todo)" class="mark-btn" v-bind:class="{ active: todo.done }"> ✓ </button>
       <span class="todo-text" v-bind:class="{ done: todo.done }"> {{ todo.text }} </span>
     </div>
-    <div class="todo-btns">
+    <div class="todo-btns" v-show="!isEditing">
       <button @click="showInput" class="edit-btn"> Edit </button>
       <button @click="deleteTodo(todo)" class="delete-btn"> Delete </button>
     </div>
@@ -49,6 +49,9 @@ export default {
   background: rgba(219,220,255, 0.3);
   border-bottom: 1px solid #ccc;
 }
+.todo-text {
+  text-align: left;
+}
 .todo-text.done {
   text-decoration: line-through;
 }
@@ -65,7 +68,7 @@ export default {
   background: rgba(219,220,255, 0.1)
 }
 .edit-todo-item {
-  margin-top: 10px;
+
 }
 .edit-btn {
   transition: all 200ms;

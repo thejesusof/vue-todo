@@ -29,13 +29,13 @@ export default new Vuex.Store({
     addTodo ({ commit }, todo) {
       commit('ADD_TODO', todo)
     },
-    editTodo ({commit}, todo) {
+    editTodo ({ commit }, todo) {
       commit('EDIT_TODO', todo)
     },
-    deleteTodo ({commit}, todo) {
+    deleteTodo ({ commit }, todo) {
       commit('DELETE_TODO', todo)
     },
-    completeTodo ({commit}, todo) {
+    completeTodo ({ commit }, todo) {
       commit('COMPLETE_TODO', todo)
     },
     getLocalStorage ({ state }) {
